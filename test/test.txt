@@ -1,4 +1,4 @@
-Accounts:
+Accounts (from local Ganache test chain):
 Admin: 0xC4D795517E9402F80d873292Ad7E776FC4770c8b
 A-0: 0x7104dbe05D4FA89d1B6393DCE348583866bc5e08
 B-1: 0xa252d7180D7662664A22a0B4A43449836C957D8E
@@ -21,15 +21,15 @@ SeedChain.deployed().then(function(instance) {return instance.addParticipant("B"
 SeedChain.deployed().then(function(instance) {return instance.addParticipant("C","passC","0x5004c31F3641e37d9dbb081B092Cc5e76229b464","Producer") });
 
 // Create 2 quality analysers participants (D, E)
-SeedChain.deployed().then(function(instance) {return instance.addParticipant("D","passD","0xA7586Bf1D272c0d5966d5afF8ae8A829088C7A0c","Quality-Analyser") });
+SeedChain.deployed().then(function(instance) {return instance.addParticipant("D","passD","0x08b932393D442aA57153358752112d46aD1C3AcB","Quality-Analyser") });
 SeedChain.deployed().then(function(instance) {return instance.addParticipant("E","passE","0x354270Ca92bAAc5b292c062758BB60D39B97b742","Quality-Analyser") });
 
 // Create 2 distributors participants (F, G)
-SeedChain.deployed().then(function(instance) {return instance.addParticipant("F","passF","0x0153387739D54EEb2BEB97E0e26790a07FA6770E","Distributor") });
+SeedChain.deployed().then(function(instance) {return instance.addParticipant("F","passF","0x0Cd65Cb9aA7d49A91A8c9AC2A1f22791013FBa42","Distributor") });
 SeedChain.deployed().then(function(instance) {return instance.addParticipant("G","passG","0x839e815B610dA8f3214826a96DaB39777E84561b","Distributor") });
 
 // Create 2 consumer participants (H, I)
-SeedChain.deployed().then(function(instance) {return instance.addParticipant("H","passF","0xfC2f95bD65841cDB19e2C51ba9Eb6dd90D00DE96","Consumer") });
+SeedChain.deployed().then(function(instance) {return instance.addParticipant("H","passF","0xe16CAD940600104c09646a75F7dc4675bb37cb43","Consumer") });
 SeedChain.deployed().then(function(instance) {return instance.addParticipant("I","passG","0x0FC092732B27F47F30EEAD1A35e97684D1Be916e","Consumer") });
 
 
@@ -53,7 +53,7 @@ SeedChain.deployed().then(function(instance) {return instance.getParticipant('0x
 SeedChain.deployed().then(function(instance) {return instance.getParticipant('0xfC2f95bD65841cDB19e2C51ba9Eb6dd90D00DE96')});
 
 // Create 3 products 100 (owned by A), 200 (owned by B), 300 (owned C)
-SeedChain.deployed().then(function(instance) {return instance.addProduct("0x5253f483D9bE807F2C262a85dB2fBe3c6C1A9Ff6", "ABC", "100", "123", 11), {from: "0x5253f483D9bE807F2C262a85dB2fBe3c6C1A9Ff6"}});
+SeedChain.deployed().then(function(instance) {return instance.addProduct("0x08b932393D442aA57153358752112d46aD1C3AcB", "ABC", "100", "123", 11), {from: "0x08b932393D442aA57153358752112d46aD1C3AcB"}});
 SeedChain.deployed().then(function(instance) {return instance.addProduct("0xa252d7180D7662664A22a0B4A43449836C957D8E", "GHI", "200", "789", 13, {from: "0xa252d7180D7662664A22a0B4A43449836C957D8E"}) });
 SeedChain.deployed().then(function(instance) {return instance.addProduct("0x5004c31F3641e37d9dbb081B092Cc5e76229b464", "MNO", "300", "357", 15, {from: "0x5004c31F3641e37d9dbb081B092Cc5e76229b464"}) });
 
@@ -63,7 +63,7 @@ SeedChain.deployed().then(function(instance) {return instance.getProduct("789") 
 SeedChain.deployed().then(function(instance) {return instance.getProduct("357") });
 
 // Add quality check reports
-SeedChain.deployed().then(function(instance) {return instance.addQualityReport("123", "brown", "100g", "Oval singly spotted seeds", "0x74657371", "0xA7586Bf1D272c0d5966d5afF8ae8A829088C7A0c") });
+SeedChain.deployed().then(function(instance) {return instance.addQualityReport("123", "brown", "100g", "Oval singly spotted seeds", "0x74657371", "0x08b932393D442aA57153358752112d46aD1C3AcB") });
 SeedChain.deployed().then(function(instance) {return instance.addQualityReport("789", "green", "100g", "Starred singly spotted seeds", "0x74657373", "0xA7586Bf1D272c0d5966d5afF8ae8A829088C7A0c") });
 SeedChain.deployed().then(function(instance) {return instance.addQualityReport("357", "yellow", "100g", "Sharp singly spotted seeds", "0x74657375", "0x354270Ca92bAAc5b292c062758BB60D39B97b742") });
 

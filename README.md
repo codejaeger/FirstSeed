@@ -5,6 +5,7 @@
 * The seed supply chain smart contract `SeedChain` is deployed at - 0xc764dC81cA232438f21205B20F2925f452b03317
 * To load a smart contract
 `SeedChain.deployed().then(function(instance) {return instance });`
+* An example is provided in `test/test.txt`
 
 #### VS code setup
 * Configure VS code solidity extension settings to use solidity compiler version 0.8.13. (Find compiler binary commit hash [here](https://github.com/ethereum/solc-bin/tree/gh-pages/bin))
