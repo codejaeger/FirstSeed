@@ -1,0 +1,26 @@
+{
+  "name": "firstseed",
+  "version": "1.0.0",
+  "description": "A blockchain for seed supply chain.",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codejaeger/FirstSeed.git"
+  },
+  "author": "Debabrata Mandal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codejaeger/FirstSeed/issues"
+  },
+  "homepage": "https://github.com/codejaeger/FirstSeed#readme",
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "^2.0.4",
+    "truffle": "^5.5.7"
+  }
+}
