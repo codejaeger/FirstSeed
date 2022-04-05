@@ -1,6 +1,7 @@
 pragma solidity ^0.8.13;
 
 contract SeedChain {
+    uint32 private constant MAX_CHAIN = 100;
     bool public adminSet = false;
     uint32 public product_id = 0;   // Product ID
     uint32 public participant_id = 0;   // Participant ID
@@ -12,6 +13,7 @@ contract SeedChain {
         string seedType;
         string serialNumber;
         address productOwner;
+        address producerAddress;
         uint32 cost;
         uint32 supplyTimeStamp;
     }
@@ -126,6 +128,7 @@ contract SeedChain {
             products[productId].cost = _productCost;
             products[productId].productOwner = participants[_ownerId].participantAddress;
             products[productId].supplyTimeStamp = uint32(block.timestamp);
+            products[productId].producerAddress = participants[_ownerId].participantAddress;
             serialNumberToProduct[_serialNumber] = productId;
 
             return productId;
@@ -227,9 +230,15 @@ contract SeedChain {
         return (true);
     }
 
-   function getProvenance(string memory _serialNumber) external view returns (uint32[] memory) {
-       uint32 _prodId = serialNumberToProduct[_serialNumber];
-       return productTrack[_prodId];
+   function getProvenance(string memory _serialNumber) external view returns (string[MAX_CHAIN] memory) {
+        uint32 _prodId = serialNumberToProduct[_serialNumber];
+        uint32[] memory prodTrack = productTrack[_prodId];
+        string[MAX_CHAIN] memory owners;
+        owners[0] = participants[addressToParticipants[products[_prodId].producerAddress]].userName;
+        for (uint32 i=0; i<prodTrack.length; i++) {
+            owners[i+1] = participants[addressToParticipants[ownerships[prodTrack[i]].productOwner]].userName;
+        }
+        return owners;
     }
 
     function getOwnership(uint32 _regId)  public view returns (uint32,uint32,address,uint32) {
