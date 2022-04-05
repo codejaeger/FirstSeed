@@ -81,15 +81,17 @@ SeedChain.deployed().then(function(instance) {return instance.newOwner(G, H, "12
 SeedChain.deployed().then(function(instance) {return instance.newOwner(B, D, "789", {from: B}) });
 SeedChain.deployed().then(function(instance) {return instance.newOwner(D, G, "789", {from: D}) });
 
+
+SeedChain.deployed().then(function(instance) {return instance.getProvenance("123") });
+SeedChain.deployed().then(function(instance) {return instance.getProvenance("789") });
+
 "123" : A -> D -> F -> G -> H
 "789" : B -> D -> G
 
 
-
-
-
-
-
+//
+//
+//
 
 SeedChain.deployed().then(function(instance) {return instance.newOwner(C, E, "357", {from: C}) });
 SeedChain.deployed().then(function(instance) {return instance.newOwner(E, G, "357", {from: E}) });
@@ -97,13 +99,9 @@ SeedChain.deployed().then(function(instance) {return instance.newOwner(G, I, "35
 
 SeedChain.deployed().then(function(instance) {return instance.newOwner(G, I, "789", {from: G}) });
 
-
-"357" : C -> E -> G -> I
-
-SeedChain.deployed().then(function(instance) {return instance.getProvenance("123") });
-SeedChain.deployed().then(function(instance) {return instance.getProvenance("789") });
 SeedChain.deployed().then(function(instance) {return instance.getProvenance(357") });
 
+"357" : C -> E -> G -> I
 
 //
 //
